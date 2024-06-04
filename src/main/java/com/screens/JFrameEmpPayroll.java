@@ -102,18 +102,30 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jLabelUndertime = new javax.swing.JLabel();
+        jLabelOvertime = new javax.swing.JLabel();
+        jLabelHWorked = new javax.swing.JLabel();
+        jLabelTHWorked = new javax.swing.JLabel();
         jPanelDeductions = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        jLabelSSS = new javax.swing.JLabel();
+        jLabelTIN = new javax.swing.JLabel();
+        jLabelPhilhealth = new javax.swing.JLabel();
+        jLabelPagibig = new javax.swing.JLabel();
         jPanelSalary = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        jLabelBasic = new javax.swing.JLabel();
+        jLabelGross = new javax.swing.JLabel();
+        jLabelDeductions = new javax.swing.JLabel();
+        jLabelNet = new javax.swing.JLabel();
         jLabelMonth1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
 
@@ -560,6 +572,14 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel23.setText("Total Hours Worked:");
 
+        jLabelUndertime.setText("test");
+
+        jLabelOvertime.setText("test");
+
+        jLabelHWorked.setText("test");
+
+        jLabelTHWorked.setText("test");
+
         javax.swing.GroupLayout jPanelTimeSheetLayout = new javax.swing.GroupLayout(jPanelTimeSheet);
         jPanelTimeSheet.setLayout(jPanelTimeSheetLayout);
         jPanelTimeSheetLayout.setHorizontalGroup(
@@ -571,11 +591,23 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
                     .addGroup(jPanelTimeSheetLayout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addGroup(jPanelTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel23))))
-                .addContainerGap(214, Short.MAX_VALUE))
+                            .addGroup(jPanelTimeSheetLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelUndertime))
+                            .addGroup(jPanelTimeSheetLayout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelOvertime))
+                            .addGroup(jPanelTimeSheetLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                                .addComponent(jLabelTHWorked))
+                            .addGroup(jPanelTimeSheetLayout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelHWorked)))))
+                .addGap(64, 64, 64))
         );
         jPanelTimeSheetLayout.setVerticalGroup(
             jPanelTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,13 +615,21 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addComponent(jLabel20)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel22)
+                .addGroup(jPanelTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabelUndertime))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel24)
+                .addGroup(jPanelTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabelOvertime))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel25)
+                .addGroup(jPanelTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabelHWorked))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel23)
+                .addGroup(jPanelTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabelTHWorked))
                 .addContainerGap(166, Short.MAX_VALUE))
         );
 
@@ -610,6 +650,14 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel30.setText("Pag-Ibig:");
 
+        jLabelSSS.setText("test");
+
+        jLabelTIN.setText("test");
+
+        jLabelPhilhealth.setText("test");
+
+        jLabelPagibig.setText("test");
+
         javax.swing.GroupLayout jPanelDeductionsLayout = new javax.swing.GroupLayout(jPanelDeductions);
         jPanelDeductions.setLayout(jPanelDeductionsLayout);
         jPanelDeductionsLayout.setHorizontalGroup(
@@ -621,11 +669,23 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
                     .addGroup(jPanelDeductionsLayout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addGroup(jPanelDeductionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel30))))
-                .addContainerGap(306, Short.MAX_VALUE))
+                            .addGroup(jPanelDeductionsLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelTIN))
+                            .addGroup(jPanelDeductionsLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelSSS))
+                            .addGroup(jPanelDeductionsLayout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelPagibig))
+                            .addGroup(jPanelDeductionsLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                                .addComponent(jLabelPhilhealth)))))
+                .addGap(61, 61, 61))
         );
         jPanelDeductionsLayout.setVerticalGroup(
             jPanelDeductionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -633,13 +693,21 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
                 .addGap(98, 98, 98)
                 .addComponent(jLabel26)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel27)
+                .addGroup(jPanelDeductionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabelSSS))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel28)
+                .addGroup(jPanelDeductionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabelTIN))
                 .addGap(24, 24, 24)
-                .addComponent(jLabel29)
+                .addGroup(jPanelDeductionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabelPhilhealth))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel30)
+                .addGroup(jPanelDeductionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabelPagibig))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -660,22 +728,38 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
         jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel35.setText("Net Salary:");
 
+        jLabelBasic.setText("test");
+
+        jLabelGross.setText("test");
+
+        jLabelDeductions.setText("test");
+
+        jLabelNet.setText("test");
+
         javax.swing.GroupLayout jPanelSalaryLayout = new javax.swing.GroupLayout(jPanelSalary);
         jPanelSalary.setLayout(jPanelSalaryLayout);
         jPanelSalaryLayout.setHorizontalGroup(
             jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSalaryLayout.createSequentialGroup()
                 .addGap(98, 98, 98)
-                .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSalaryLayout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addGap(19, 19, 19))
-                    .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel34)
-                        .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(278, Short.MAX_VALUE))
+                        .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                        .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelBasic)
+                            .addComponent(jLabelGross)
+                            .addComponent(jLabelDeductions)))
+                    .addGroup(jPanelSalaryLayout.createSequentialGroup()
+                        .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelNet)))
+                .addGap(95, 95, 95))
         );
         jPanelSalaryLayout.setVerticalGroup(
             jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -684,15 +768,23 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
                 .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSalaryLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(jLabel32))
+                        .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabelBasic)))
                     .addComponent(jLabel31))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel34)
+                .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabelGross))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel35)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabelDeductions))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelSalaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabelNet))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         jLabelMonth1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -951,8 +1043,20 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelBasic;
+    private javax.swing.JLabel jLabelDeductions;
+    private javax.swing.JLabel jLabelGross;
+    private javax.swing.JLabel jLabelHWorked;
     private javax.swing.JLabel jLabelMonth;
     private javax.swing.JLabel jLabelMonth1;
+    private javax.swing.JLabel jLabelNet;
+    private javax.swing.JLabel jLabelOvertime;
+    private javax.swing.JLabel jLabelPagibig;
+    private javax.swing.JLabel jLabelPhilhealth;
+    private javax.swing.JLabel jLabelSSS;
+    private javax.swing.JLabel jLabelTHWorked;
+    private javax.swing.JLabel jLabelTIN;
+    private javax.swing.JLabel jLabelUndertime;
     private javax.swing.JPanel jPanelDeductions;
     private javax.swing.JPanel jPanelFooter;
     private javax.swing.JPanel jPanelHeader;
