@@ -6,6 +6,7 @@ package DBConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,7 +31,7 @@ public class DBConnection {
                 count = 1;
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error in Database" + e);
         }
     }

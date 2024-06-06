@@ -29,6 +29,13 @@ public class EmpDetails {
     private String status;
     private String position;
     private String immediateSupervisor;
+    
+    private String basicSalary;
+    private String riceSubsidy;
+    private String phoneAllowance;
+    private String clothingAllowance;
+    private String grossSemiMonthlyRate;
+    private String hourlyRate;
   
     private int firstLogin;
     
@@ -84,7 +91,22 @@ public class EmpDetails {
         this.birthday = birthday;
         this.email = email;
         this.position = position;
-    }    
+    }
+
+    public EmpDetails(int id, String designation, String firstName, String lastName, String basicSalary, String riceSubsidy, String phoneAllowance,
+            String clothingAllowance, String grossSemiMonthlyRate, String hourlyRate) {
+        this.id = id;
+        this.designation = designation;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.basicSalary = basicSalary;
+        this.riceSubsidy = riceSubsidy;
+        this.phoneAllowance = phoneAllowance;
+        this.clothingAllowance = clothingAllowance;
+        this.grossSemiMonthlyRate = grossSemiMonthlyRate;
+        this.hourlyRate = hourlyRate;
+                
+    }
 
     public EmpDetails(int id,
             String lastName,
@@ -160,9 +182,42 @@ public class EmpDetails {
                 this.firstLogin = firstLogin;
     }     
     
-    public EmpDetails() {
+    public EmpDetails(String designation,
+            String firstName,
+            String lastName,
+            Date birthday,
+            String email,
+            String position,
+            String basicSalary,
+            String riceSubsidy,
+            String phoneAllowance,
+            String clothingAllowance,
+            String grossSemiMonthlyRate,
+            String hourlyRate,
+            int id) {
+            this.designation = designation;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthday = birthday;
+            this.email = email;
+            this.position = position;
+            this.basicSalary = basicSalary;
+            this.riceSubsidy = riceSubsidy;
+            this.phoneAllowance = phoneAllowance;
+            this.clothingAllowance = clothingAllowance;
+            this.grossSemiMonthlyRate = grossSemiMonthlyRate;
+            this.hourlyRate = hourlyRate;
+            this.id = id;
 
     }       
+
+    EmpDetails(int aInt, String string, String string0, java.sql.Date date, String string1, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, int aInt0, String string13, String string14, String string15, String string16, String string17, String string18) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    EmpDetails() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 
 //------------   #### SET PROPERTIES HERE ------############//
@@ -307,6 +362,67 @@ public class EmpDetails {
     public void setFirstLogin(int firstLogin) {
         this.firstLogin = firstLogin;
     }    
+
+    public String getTin() {
+        return tin;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getBasicSalary() {
+        return basicSalary;
+    }
+
+    public String getRiceSubsidy() {
+        return riceSubsidy;
+    }
+
+    public String getPhoneAllowance() {
+        return phoneAllowance;
+    }
+
+    public String getClothingAllowance() {
+        return clothingAllowance;
+    }
+
+    public String getGrossSemiMonthlyRate() {
+        return grossSemiMonthlyRate;
+    }
+
+    public String getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public void setTin(String tin) {
+        this.tin = tin;
+    }
+
+    public void setBasicSalary(String basicSalary) {
+        this.basicSalary = basicSalary;
+    }
+
+    public void setRiceSubsidy(String riceSubsidy) {
+        this.riceSubsidy = riceSubsidy;
+    }
+
+    public void setPhoneAllowance(String phoneAllowance) {
+        this.phoneAllowance = phoneAllowance;
+    }
+
+    public void setClothingAllowance(String clothingAllowance) {
+        this.clothingAllowance = clothingAllowance;
+    }
+
+    public void setGrossSemiMonthlyRate(String grossSemiMonthlyRate) {
+        this.grossSemiMonthlyRate = grossSemiMonthlyRate;
+    }
+
+    public void setHourlyRate(String hourlyRate) {
+        this.hourlyRate = hourlyRate;
+    }
+
     Object getDate() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

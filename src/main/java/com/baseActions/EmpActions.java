@@ -52,7 +52,14 @@ public class EmpActions {
                         rs.getString(searchQuery.position),                        
                         rs.getString(searchQuery.immediateSupervisor),                        
                         
-                        rs.getInt(searchQuery.FirstLogin)
+                        rs.getInt(searchQuery.FirstLogin),
+                        
+                        rs.getString(searchQuery.basicSalary),
+                        rs.getString(searchQuery.riceSubsidy),
+                        rs.getString(searchQuery.phoneAllowance),
+                        rs.getString(searchQuery.clothingAllowance),
+                        rs.getString(searchQuery.grossSemiMonthlyRate),
+                        rs.getString(searchQuery.hourlyRate)
                 ));
             }
         } catch (SQLException e) {
@@ -105,7 +112,6 @@ public class EmpActions {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                    empDetailsList.setId(rs.getInt(searchQuery.id));
                     empDetailsList.setLastName(rs.getString(searchQuery.lastName));
                     empDetailsList.setFirstName(rs.getString(searchQuery.firstName));
                     empDetailsList.setBirthday(rs.getDate(searchQuery.birthDay));
@@ -125,6 +131,13 @@ public class EmpActions {
                     empDetailsList.setImmediateSupervisor(rs.getString(searchQuery.immediateSupervisor));
                     
                     empDetailsList.setFirstLogin(rs.getInt(searchQuery.FirstLogin));
+                    empDetailsList.setFirstLogin(rs.getInt(searchQuery.basicSalary));
+                    empDetailsList.setFirstLogin(rs.getInt(searchQuery.riceSubsidy));
+                    empDetailsList.setFirstLogin(rs.getInt(searchQuery.phoneAllowance));
+                    empDetailsList.setFirstLogin(rs.getInt(searchQuery.clothingAllowance));
+                    empDetailsList.setFirstLogin(rs.getInt(searchQuery.grossSemiMonthlyRate));
+                    empDetailsList.setFirstLogin(rs.getInt(searchQuery.hourlyRate));
+                    empDetailsList.setId(rs.getInt(searchQuery.id));
                 }
             else {
                 JOptionPane.showMessageDialog(null, "No record selected");
@@ -135,6 +148,8 @@ public class EmpActions {
         return empDetailsList;
     }
 
+    
+           
     // Rename method to updateEmpDetails
     // Remove password field
     // Add the missing fields such as Address

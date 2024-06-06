@@ -229,7 +229,9 @@ public class JFrameEmpInfo extends javax.swing.JFrame {
             }
         });
 
+        jButtonHome.setBackground(new java.awt.Color(99, 93, 255));
         jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
         jButtonHome.setText("HOME");
         jButtonHome.setMaximumSize(new java.awt.Dimension(150, 50));
         jButtonHome.setMinimumSize(new java.awt.Dimension(150, 50));
@@ -266,9 +268,7 @@ public class JFrameEmpInfo extends javax.swing.JFrame {
             }
         });
 
-        jButtonEmpInfo.setBackground(new java.awt.Color(99, 93, 255));
         jButtonEmpInfo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonEmpInfo.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEmpInfo.setText("EMPLOYEE INFORMATION");
         jButtonEmpInfo.setMaximumSize(new java.awt.Dimension(250, 50));
         jButtonEmpInfo.setMinimumSize(new java.awt.Dimension(250, 50));

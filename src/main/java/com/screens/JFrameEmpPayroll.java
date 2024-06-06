@@ -7,18 +7,24 @@ package com.screens;
 import DBConnection.DBConnection;
 import com.baseActions.EmpActions;
 import com.baseActions.EmpDetails;
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.toedter.calendar.JDateChooser;
 
 /**
  *
  * @author CHAS
  */
-public final class JFrameEmpPayroll extends javax.swing.JFrame {
+public class JFrameEmpPayroll extends javax.swing.JFrame {
 
     
     public static JFrameEmpPayroll Instance;
@@ -80,7 +86,6 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         FldSupervisor = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        FldBirthday = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         FldSSS = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -91,6 +96,7 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
         FldPhilhealth = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         FldPagibig = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanelPayInfo = new javax.swing.JPanel();
         BtnCompute = new javax.swing.JButton();
         jPanelMonth = new javax.swing.JPanel();
@@ -397,8 +403,6 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setText("Birthday:");
 
-        FldBirthday.setEditable(false);
-
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setText("SSS #:");
 
@@ -458,9 +462,9 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
                                     .addComponent(FldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(JPanelEmpInfoLayout.createSequentialGroup()
                                 .addGroup(JPanelEmpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(FldBirthday, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(FldSSS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                    .addComponent(FldPhilhealth, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(FldPhilhealth, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(JPanelEmpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel15)
@@ -498,11 +502,12 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(FldSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(JPanelEmpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(FldBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(FldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(JPanelEmpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelEmpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12)
+                        .addComponent(jLabel14)
+                        .addComponent(FldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelEmpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -887,14 +892,14 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
     public void search(String str) {
         EmpActions eaSearch = new EmpActions();
         List<EmpDetails> list = (List<EmpDetails>) eaSearch.searchEmployee(str);
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy");
        for(EmpDetails edetail : list){
          FldLastName.setText(edetail.getLastName());
          FldStatus.setText(edetail.getSatus());
          FldFirstName.setText(edetail.getFirstName());
          FldPosition.setText(edetail.getPosition());
          FldSupervisor.setText(edetail.getImmediateSupervisor());
-         // FldBirthday.setDate(edetail.getBirthday()); //getting error when accessing setDate
+         jDateChooser1.setDate(edetail.getBirthday());
          FldPhoneNumber.setText(edetail.getPhoneNumber());
          FldSSS.setText(edetail.getSSS());
          FldTin.setText(edetail.getTIN());
@@ -906,6 +911,8 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
    
     private void jButtonLeaveAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLeaveAppActionPerformed
         // TODO add your handling code here:
+        new JFrameLeaveForm().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonLeaveAppActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -955,6 +962,23 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JFrameEmpPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JFrameEmpPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JFrameEmpPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JFrameEmpPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -989,7 +1013,6 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCompute;
-    private javax.swing.JTextField FldBirthday;
     private javax.swing.JTextField FldFirstName;
     private javax.swing.JTextField FldLastName;
     private javax.swing.JTextField FldPagibig;
@@ -1009,6 +1032,7 @@ public final class JFrameEmpPayroll extends javax.swing.JFrame {
     private javax.swing.JButton jButtonTimesheet;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
