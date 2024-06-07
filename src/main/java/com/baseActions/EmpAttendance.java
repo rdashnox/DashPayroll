@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author JD Morales
  */
 public class EmpAttendance {
+    EmpAttendance empAttendanceList = new EmpAttendance();
     MotorPH_String QueryString = new MotorPH_String();
     
     // Retrieve user info
@@ -29,8 +30,60 @@ public class EmpAttendance {
     public static String UserDesignation = "";
     public static int UserFirstLogin = 0;
     public static String UserPosition = "";
-    
+    public static int AttId = 0;
+    public static int ID = 0;
+    public static int LogDate;
+    public static Time LogTime;
+    public static String Status;
 
+    public static int getAttId() {
+        return AttId;
+    }
+
+    public static void setAttId(int AttId) {
+        EmpAttendance.AttId = AttId;
+    }
+
+    public static int getID() {
+        return ID;
+    }
+
+    public static void setID(int ID) {
+        EmpAttendance.ID = ID;
+    }
+
+    public static java.util.Date getLogDate() {
+        return LogDate;
+    }
+
+    public static void setLogDate(java.util.Date LogDate) {
+        EmpAttendance.LogDate = LogDate;
+    }
+
+    public static Time getLogTime() {
+        return LogTime;
+    }
+
+    public static void setLogTime(Time LogTime) {
+        EmpAttendance.LogTime = LogTime;
+    }
+
+    public static String getStatus() {
+        return Status;
+    }
+
+    public static void setStatus(String Status) {
+        EmpAttendance.Status = Status;
+    }
+
+    private EmpAttendance(int aInt, java.util.Date date, String string, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+
+    private EmpAttendance() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     public EmpDetails retrieveUserInfo(int id) {
         EmpDetails empDetails = null;
         try (PreparedStatement ps = DBConnection.con.prepareStatement(QueryString.userSearchById)) {
@@ -60,6 +113,51 @@ public class EmpAttendance {
             JOptionPane.showMessageDialog(null, "Error in retrieving info: " + e.getMessage());
         }
         return empDetails;
+    }
+    
+    
+        public EmpAttendance retrieveUserAtt(int id) {
+       
+        try {
+            PreparedStatement ps = DBConnection.con.prepareStatement(QueryString.searchByID);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                    empAttendanceList.setAttId(rs.getInt(QueryString.attId));
+                    empAttendanceList.setID(rs.getInt(QueryString.id));
+                    empAttendanceList.setLogDate(rs.getDate(QueryString.logDate));
+                    empAttendanceList.setLogTime(rs.getTime(QueryString.logTime));
+                    empAttendanceList.setStatus(rs.getString(QueryString.status));
+                    
+            }else {
+            JOptionPane.showMessageDialog(null, "No record selected");
+            }
+       } catch (SQLException e) {
+            // handle the exception
+       }
+         return empAttendanceList;
+    }
+    
+    
+    public List<EmpAttendance> loadAtt() {
+        List<EmpAttendance> list = new ArrayList<>();
+        try {
+            PreparedStatement ps = DBConnection.con.prepareStatement(QueryString.displayEmployeeAtt);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new EmpAttendance(
+                        //rs.getInt(Integer.parseInt(searchQuery.id)),
+                        rs.getInt(QueryString.attId),
+                        rs.getInt(QueryString.id),
+                        rs.getDate(QueryString.logDate),
+                        rs.getTime(QueryString.logTime),
+                        rs.getString(QueryString.status)
+                ));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "" + e);
+        }
+        return list;
     }
 
     public static void saveTimeInToDatabase(Date dateString, Time time) {

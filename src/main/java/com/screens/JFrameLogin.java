@@ -328,6 +328,7 @@ public class JFrameLogin extends javax.swing.JFrame {
 
                 // If it is the employee's first time to login, do this:
                 //JOptionPane.showMessageDialog(null, "UserFirstLogin: " + EmpAttendance.UserFirstLogin);
+             
                 if (EmpAttendance.UserFirstLogin == 1) {
                     JFrameFirstLogin FrameFirstLogin = new JFrameFirstLogin(EmpAttendance.UserID, EmpAttendance.UserDesignation);
                     //JOptionPane.showMessageDialog(null, "run FrameFirstLogin");

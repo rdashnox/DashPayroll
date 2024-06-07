@@ -4,6 +4,7 @@
  */
 package com.baseActions;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -29,7 +30,25 @@ public class EmpDetails {
     private String status;
     private String position;
     private String immediateSupervisor;
+    private BigDecimal basicSalary;
   
+
+    public String getTin() {
+        return tin;
+    }
+
+    public void setTin(String tin) {
+        this.tin = tin;
+    }
+
+    public BigDecimal getBasicSalary() {
+        return basicSalary;
+    }
+
+    public void setBasicSalary(BigDecimal basicSalary) {
+        this.basicSalary = basicSalary;
+    }
+   
     private int firstLogin;
     
     // Overload the constructor with different parameter combinations

@@ -61,6 +61,7 @@ public class EmpActions {
         return list;
     }
 
+    
     public void insertDataAddEmp(EmpDetails empDetails) {
         try {
             // Verify if the Email already exists in the DB            

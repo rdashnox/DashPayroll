@@ -17,6 +17,8 @@ public class MotorPH_String {
     String loadData = "select * from motorphdb";
     String searchEmployee = "SELECT * FROM motorphdb WHERE ID = ? OR `Last Name` LIKE ? OR `First Name` LIKE ?";
     String displayEmployeeInfo = "SELECT `SSS #`, `Philhealth #`, `Pag-ibig #`, `TIN #` FROM motorphdb WHERE ID = ?";
+    String displayEmployeeSalary = "SELECT `Basic Salary`, `Rice Subsidy`, `Phone Allowance`, `Clothing Allowance`, `Gross Semi-Monthly Rate`, `Hourly Rate` FROM motorphdb WHERE ID = ?";
+    String displayEmployeeAtt = "SELECT `AttID`, `ID`, `LogDate`, `LogTime`, `Status` FROM attendance WHERE ID = ?";
     //String userLoginSearch = "SELECT ID, `Last Name`, `First Name`, Birthday, Email, Designation, Position, FirstLogin FROM motorphdb WHERE Email = ? AND Password = ?";
     String userLoginSearch = "SELECT * FROM motorphdb WHERE Email = ? AND Password = ?";    
     String userSearchById = "SELECT ID, `Last Name`, `First Name`, Birthday, Email, Designation, Position, FirstLogin FROM motorphdb WHERE ID = ? ORDER BY ID ASC LIMIT 1";
@@ -55,7 +57,10 @@ public class MotorPH_String {
     String logDate = "LogDate";
     String logTime = "LogTime";
 
+    String attId = "AttID";
     
-    String FirstLogin = "FirstLogin";    
+    String FirstLogin = "FirstLogin"; 
+    
+    
     
 }

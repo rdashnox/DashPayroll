@@ -718,6 +718,8 @@ public void currentDate(){
 
     private void jButtonPayrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPayrollActionPerformed
         // TODO add your handling code here:
+        new JFrameEmpPayroll().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonPayrollActionPerformed
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
